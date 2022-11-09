@@ -1,0 +1,25 @@
+{
+  "name": "pando-explorer-backend-node",
+  "version": "2.0.0",
+  "description": "The pando Ledger Explorer project contains a , a backend api application to provide data to the frontend, and a blockchain data crawler to download data from the blockchain.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/pandoproject/explorer-application.git"
+  },
+  "author": "Pandolab Pte Ltd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/pandoproject/explorer-application/issues"
+  },
+  "homepage": "https://gitlab.com/pandoproject/explorer-application#readme",
+  "dependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

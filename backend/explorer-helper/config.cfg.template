@@ -1,0 +1,9 @@
+{
+    "log": {
+        "level": "debug"
+    },
+    "server": {
+        "port": 
+    },
+    "shouldDownloadAll": false
+}

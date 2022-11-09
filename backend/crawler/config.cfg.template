@@ -1,0 +1,41 @@
+{
+    "mongo": {
+        "uri": "",
+        "address": "localhost",
+        "port": 27017,
+        "dbName": ""
+    },
+    "node": {
+        "address": "",
+        "port": 16888
+    },
+    "log": {
+        "level": "debug"
+    },
+    "blockchain": {
+        "networkId": "pandonet",
+        "startHeight": 1
+    },
+    "accounting": {
+        "coinmarketcapApiKey": "COINMARKETCAP_API_KEY",
+        "walletAddresses": [
+            "",
+           
+        ]
+    },
+    "redis": {
+        "enabled": false, 
+        "isCluster": false,
+        "host": "127.0.0.1",
+        "port": 6379,
+        "password": "",
+        "family": 4,
+        "db": 0
+    },
+    "nodeCache": {
+        "enabled": false
+    },
+    "maxBlockPerCrawl": 2,
+    "retrieveTokenStartHeight": 0,
+    "defaultPandoChainID": "pandonet"
+}

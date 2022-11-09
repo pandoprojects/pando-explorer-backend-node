@@ -1,0 +1,37 @@
+{
+  "name": "pando-network-explorer-api",
+  "version": "2.0.0",
+  "description": "",
+  "main": "run.js",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "bignumber.js": "^8.0.1",
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.4",
+    "date-format": "^4.0.14",
+    "dotenv": "^16.0.0",
+    "eth-lib": "^0.1.29",
+    "ethers": "^5.6.9",
+    "express": "^4.16.3",
+    "ioredis": "^4.22.0",
+    "lodash": "4.17.11",
+    "mongodb": "^3.1.13",
+    "node-cron": "^3.0.0",
+    "path": "^0.12.7",
+    "pg": "^8.7.1",
+    "redis": "^3.0.2",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5",
+    "socketio": "^1.0.0",
+    "spdy": "^4.0.2",
+    "util": "^0.12.4",
+    "winston": "^3.8.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pandolab Pte Ltd",
+  "license": "GPL-3.0 license"
+}
