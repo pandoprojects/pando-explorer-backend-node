@@ -14,7 +14,7 @@
     "url": "git+https://gitlab.com/pandoproject/explorer-application.git"
   },
   "author": "Pandolab Pte Ltd",
-  "license": "ISC",
+  "license": "GPL-3.0 license",
   "bugs": {
     "url": "https://gitlab.com/pandoproject/explorer-application/issues"
   },

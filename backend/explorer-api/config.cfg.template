@@ -13,8 +13,8 @@
         "level": "debug"
     },
     "server": {
-        "port": 4022,
-        "socketIOPort": 2096
+        "port": ,
+        "socketIOPort": 
     },
     "blockchain": {
         "networkId": "pandonet"
