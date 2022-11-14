@@ -61,32 +61,6 @@ node run
 
 Now the explorer API application is running at http://localhost:4022
 
-**Install all the project dependencies by running below command**
-
-```
-npm install.
-
-```
-
-```
-npm install nodemon
-```
-
-After this Run following command
-
-```
-npm start
-```
-Open http://localhost:4011 to view it in the browser.
-The page will reload if you make edits.
-You will also see any lint errors in the console.
-
-
-Dependencies-
-node js version=v12.22.9
-npm version=8.5.1
-
-** Now update the  project Database **
 
 ## Now update the  project Database
 
