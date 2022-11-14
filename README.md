@@ -6,7 +6,7 @@
 The Pando Explorer project contains a backend api application to provide data to the frontend, and a blockchain data crawler to download data from the blockchain., please visit https://explorer.pandoproject.org/.
 
 
-**URL of explorer frontend code is** : https://github.com/pandoprojects/pando-explorer-backend-node
+**URL of explorer frontend code is** : https://github.com/pandoprojects/pando-explorer-frontend
 
 ## How to launch the project (Backend) on your local system
 
