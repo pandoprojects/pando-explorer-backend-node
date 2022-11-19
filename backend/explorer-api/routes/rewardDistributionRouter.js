@@ -28,7 +28,7 @@ var rewardDistributionRouter = (app, rewardDistributionDao) => {
     rewardDistributionDao.getRewardDistributionByAddressAsync(address)
       .then(list => {
         if (list && list.length === 0) {
-          res.status(404).send({
+          res.status(200).send({
             type: 'stake_reward_distribution',
             error: `Split reward distribution not found for address ${address}`
           })

@@ -17,7 +17,7 @@
         "socketIOPort": 
     },
     "blockchain": {
-        "networkId": "pandonet"
+        "networkId": "privatenet"
     },
     "coinmarketcap":{
         "key": "COINMARKETCAP_API_KEY",
@@ -38,5 +38,5 @@
         "family": 4,
         "db": 0
     },
-    "defaultPandoChainID": "pandonet"
+    "defaultPandoChainID": "privatenet"
 }

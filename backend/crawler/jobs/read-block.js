@@ -41,13 +41,13 @@ var cacheEnabled = false;
 var stakeBlockHeight = 0;
 var stakeTimestamp = 0;
 // dec
-var startTime;
+var startTime; 
 //------------------------------------------------------------------------------
 //  All the implementation goes below
 //------------------------------------------------------------------------------
 exports.Initialize = function (progressDaoInstance, blockDaoInstance, transactionDaoInstance, accountDaoInstance,
   accountTxDaoInstance, stakeDaoInstance, checkpointDaoInstance, smartContractDaoInstance, dailyAccountDaoInstance,
-  rewardDistributionDaoInstance, stakeHistoryDaoInstance, tokenDaoInstance, tokenSummaryDaoInstance,
+  rewardDistributionDaoInstance, tokenDaoInstance, tokenSummaryDaoInstance,
   tokenHolderDaoInstance, cacheEnabledConfig, maxBlockPerCrawlConfig) {
   blockDao = blockDaoInstance;
   progressDao = progressDaoInstance;
@@ -59,7 +59,6 @@ exports.Initialize = function (progressDaoInstance, blockDaoInstance, transactio
   smartContractDao = smartContractDaoInstance;
   dailyAccountDao = dailyAccountDaoInstance;
   rewardDistributionDao = rewardDistributionDaoInstance;
-  stakeHistoryDao = stakeHistoryDaoInstance;
   tokenDao = tokenDaoInstance;
   tokenSummaryDao = tokenSummaryDaoInstance;
   tokenHolderDao = tokenHolderDaoInstance;
@@ -67,7 +66,6 @@ exports.Initialize = function (progressDaoInstance, blockDaoInstance, transactio
   maxBlockPerCrawl = Number(maxBlockPerCrawlConfig);
   maxBlockPerCrawl = Number.isNaN(maxBlockPerCrawl) ? 2 : maxBlockPerCrawl;
 }
-
 exports.Execute = async function (networkId) {
   await progressDao.getProgressAsync(networkId)
     .then(function (progressInfo) {

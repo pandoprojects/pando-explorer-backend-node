@@ -1,6 +1,7 @@
 var fs = require('fs')
-var express = require('express');
 var cron = require('node-cron');
+var express = require('express');
+var bodyParser=require("body-parser")
 var app = express();
 var axios = require('axios');
 var compression = require('compression');
@@ -40,8 +41,15 @@ var activeActRouter = require("./routes/activeActRouter");
 var tokenRouter = require("./routes/tokenRouter");
 var rewardDistributionRouter = require("./routes/rewardDistributionRouter");
 
+
+app.use(bodyParser.json());                        
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
 var cors = require('cors');
 var io;
+
+app.use(bodyParser({limit: '50mb'}));
 //------------------------------------------------------------------------------
 //  Global variables 
 //------------------------------------------------------------------------------
@@ -50,8 +58,9 @@ var redis = null;
 var redisConfig = null;
 
 var config = null;
-var configFileName = 'config.cfg';
+ var configFileName = 'config.cfg';
 // var configFileName = 'explorer-api/config.cfg';
+
 //fixed
 var blockDao = null;
 

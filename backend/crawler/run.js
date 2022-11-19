@@ -64,7 +64,7 @@ function main() {
     Logger.log(err);
     process.exit(1);
   }
-  const network_id = config.blockchain.network_id;
+  const network_id = config.blockchain.networkId;
   rpc.setConfig(config);
   bluebird.promisifyAll(rpc);
 
@@ -195,12 +195,15 @@ function setupGetBlockCronJob(mongoClient, network_id) {
     await readPreFeeCronJob.Execute(network_id, readPreFeeTimer);
   }, 1000);
 
-  readBlockCronJob.Initialize(progressDao, blockDao, transactionDao, accountDao, accountTxDao,
-    stakeDao, rewardDistributionDao, checkpointDao, smartContractDao, dailyAccountDao,tokenDao, tokenSummaryDao, tokenHolderDao, cacheEnabled, config.maxBlockPerCrawl);
+
+  readBlockCronJob.Initialize(progressDao, blockDao, transactionDao, accountDao, accountTxDao, stakeDao,
+    checkpointDao, smartContractDao, dailyAccountDao, rewardDistributionDao, tokenDao,
+    tokenSummaryDao, tokenHolderDao, cacheEnabled, config.maxBlockPerCrawl);
   setTimeout(async function run() {
     await readBlockCronJob.Execute(network_id);
     setTimeout(run, 1000);
   }, 1000);
+
 
   readTxHistoryJob.Initialize(transactionDao, txHistoryDao);
   schedule.scheduleJob('Record Transaction History', '0 0 0 * * *', 'America/Tijuana', readTxHistoryJob.Execute);

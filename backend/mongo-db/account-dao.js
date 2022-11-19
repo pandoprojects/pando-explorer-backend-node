@@ -93,9 +93,9 @@ module.exports = class AccountDAO {
     // const queryObject = { 'type': { $in: types } };
     const queryObject = [{
       $match: {
-        //address: { $nin: ["0xdf1f3d3ee9430db3a44ae6b80eb3e23352bb785e", "0x99eac60c09e1443c147ed3bea20c11643f257a2c", "0xcb4f90af1cccc8e5ad7a8282573a21713767f213"] }
-        address: { $nin: ["0x74173e92cb56548563a4213E330D7522dD04013A", "0x4EF6B65d557Fe88DC86eAF96E830d9A4e2fCaBfB", "0x81bccc41c146f7a2f28ee58ef6c4f7d23dad1d43","0x64600792D03E51a44fFb568760669cc03Ce4947a"] }
-      
+        address: { $nin: ["0xdf1f3d3ee9430db3a44ae6b80eb3e23352bb785e", "0x99eac60c09e1443c147ed3bea20c11643f257a2c", "0xcb4f90af1cccc8e5ad7a8282573a21713767f213"] }
+      //  address: { $nin: ["0x74173e92cb56548563a4213E330D7522dD04013A", "0x4EF6B65d557Fe88DC86eAF96E830d9A4e2fCaBfB", "0x81bccc41c146f7a2f28ee58ef6c4f7d23dad1d43","0x64600792D03E51a44fFb568760669cc03Ce4947a"] }
+    //address: { $nin: ["0x2e833968e5bb786ae419c4d13189fb081cc43bab", "0x1df9F811E2b3bBdfE6Af5eD167A3A21583A06ca8"] }
       }
     },
     {
@@ -103,7 +103,7 @@ module.exports = class AccountDAO {
         _id: "null",
         Total: {
           $sum: {
-            "$toDouble": "$balance.ptxwei"
+            "$toDouble": "$balance.PTXWei"
           }
         }
       }

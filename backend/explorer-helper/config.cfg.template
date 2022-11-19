@@ -3,7 +3,7 @@
         "level": "debug"
     },
     "server": {
-        "port": 
+        "port": 9090
     },
     "shouldDownloadAll": false
 }

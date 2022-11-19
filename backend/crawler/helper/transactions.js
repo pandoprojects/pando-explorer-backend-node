@@ -10,7 +10,7 @@ exports.getBriefTxs = function (txs) {
       const gasPrice = tx.raw.gas_price;
       fee = {
         'Pandowei': '0',
-        'PTXwei': helper.timeCoin(gasUsed, gasPrice)
+        'PTXWei': helper.timeCoin(gasUsed, gasPrice)
       }
     } else {
       fee = tx.raw.fee || null;

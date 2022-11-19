@@ -31,7 +31,7 @@ var accountRouter = (app, accountDao, tokenDao, rpc) => {
             type: 'error_not_found',
             error
           });
-          res.status(404).send(err);
+          res.status(200).send(err);
         } else {
           loggers.error("account/:address", error)
           // console.log('ERR - ', error)
@@ -49,6 +49,7 @@ var accountRouter = (app, accountDao, tokenDao, rpc) => {
     rpc.getAccountAsync([{ 'address': address }])
       .then(async function (data) {
         let tmp = JSON.parse(data);
+    
         if (tmp.result) {
           const isExist = await accountDao.checkAccountAsync(address);
           const accountInfo = isExist ? await accountDao.getAccountByPkAsync(address) : null;
@@ -90,7 +91,7 @@ var accountRouter = (app, accountDao, tokenDao, rpc) => {
           const err = ({
             type: 'error_not_found'
           });
-          res.status(404).send(err);
+          res.status(200).send(err);
         }
       })
   });
@@ -132,8 +133,8 @@ var accountRouter = (app, accountDao, tokenDao, rpc) => {
             type: 'error_not_found',
             error
           });
-          loggers.info("account/total/number 404", err);
-          res.status(404).send(err);
+          loggers.info("account/total/number 200", err);
+          res.status(200).send(err);
         } else {
           // console.log('ERR - ', error)
           loggers.error("account/total/number", error);
@@ -162,7 +163,7 @@ var accountRouter = (app, accountDao, tokenDao, rpc) => {
               error
             });
             loggers.error("account/top/:tokenType/:limit", error)
-            res.status(404).send(err);
+            res.status(200).send(err);
           } else {
             loggers.error("account/top/:tokenType/:limit", error);
             // console.log('ERR - ', error)

@@ -14,7 +14,7 @@ var blockRouter = (app, blockDao, progressDao, checkpointDao, config) => {
     let latest_block_height;
     console.log('Querying one block by using Id: ' + blockId);
     if (blockId > 0) {
-      progressDao.getProgressAsync(config.blockchain.network_id)
+      progressDao.getProgressAsync(config.blockchain.networkId)
         .then((progressInfo) => {
           latest_block_height = progressInfo.height;
           loggers.info("block/:id",progressInfo);
@@ -59,7 +59,7 @@ var blockRouter = (app, blockDao, progressDao, checkpointDao, config) => {
               type: 'error_not_found',
               error
             };
-            res.status(404).send(err);
+            res.status(200).send(err);
           } else {
             console.log('ERR - ', error)
           }
@@ -72,7 +72,7 @@ var blockRouter = (app, blockDao, progressDao, checkpointDao, config) => {
   router.get("/blocks/top_blocks", (req, res) => {
     numberOfBlocks = 1;
     let totalPageNumber, pageNumber = 1;
-    progressDao.getProgressAsync(config.blockchain.network_id)
+    progressDao.getProgressAsync(config.blockchain.networkId)
       .then((progressInfo) => {
         latest_block_height = progressInfo.height;
         console.log('Latest block height: ' + latest_block_height.toString());

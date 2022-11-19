@@ -92,7 +92,7 @@ Block status transitions:
 **Example**
 ```
 // Request
-curl https://explorer.pandotoken.org:9000/api/block/1
+curl localhost:9050/api/block/1
 
 // Result
 {  
@@ -203,7 +203,7 @@ In this example, we query the blocks with page number 0 and page size 10.
 
 ```
 // Request
-curl https://explorer.pandotoken.org:9000/api/blocks/top_blocks?pageNumber=1&limit=10
+curl localhost:9050/api/blocks/top_blocks?pageNumber=1&limit=10
 
 // Result
 {  
@@ -429,7 +429,7 @@ This API returns a list of block of given the page number and limit number.
 **Example**
 ```
 // Request
-curl https://explorer.pandotoken.org:9000/api/transactions/range?pageNumber=1&limit=10
+curl localhost:9050/api/transactions/range?pageNumber=1&limit=10
 
 // Result
 {  
@@ -474,7 +474,7 @@ This API returns the details of the account being queried with address.
 **Example**
 ```
 // Request
-curl https://explorer.pandotoken.org:9000/api/account/0x3c6D5ED0353c22c31c5F91688A9D10E7Af2DF636
+curl localhost:9050/api/account/0x3c6D5ED0353c22c31c5F91688A9D10E7Af2DF636
 
 // Result
 {
@@ -517,7 +517,7 @@ This API returns the details of the account being queried with address.
 **Example**
 ```
 // Request
-curl "https://explorer.pandotoken.org:9000/api/accounttx/0x3c6D5ED0353c22c31c5F91688A9D10E7Af2DF636?type=2&pageNumber=1&limitNumber=50&isEqualType=true"
+curl "localhost:9050/api/accounttx/0x3c6D5ED0353c22c31c5F91688A9D10E7Af2DF636?type=2&pageNumber=1&limitNumber=50&isEqualType=true"
 
 // Result
 {
@@ -547,7 +547,7 @@ This API returns the list of top token holders.
 **Example**
 ```
 // Request
-curl "https://explorer.pandotoken.org:9000/api/account/top/pando/5"
+curl "localhost:9050/api/account/top/pando/5"
 
 // Result
 {
@@ -582,7 +582,7 @@ This API returns all stake records.
 **Example**
 ```
 // Request 
-curl https://explorer.pandotoken.org:9000/api/stake/all
+curl localhost:9050/api/stake/all
 
 // Result
 {
@@ -631,7 +631,7 @@ This API returns the total amount of stakes.
 **Example**
 ```
 // Request 
-curl https://explorer.pandotoken.org:9000/api/stake/totalAmount
+curl localhost:9050/api/stake/totalAmount
 
 // Result
 {
@@ -653,7 +653,7 @@ This API returns the stakes being queried with address.
 **Example**
 ```
 // Request 
-curl https://explorer.pandotoken.org:9000/api/stake/totalAmount
+curl localhost:9050/api/stake/totalAmount
 
 // Result
 {
@@ -709,7 +709,7 @@ This API returns the total amount and circulation amount of Pando.
 **Example**
 ```
 // Request 
-curl https://explorer.pandotoken.org:9000/api/supply/pando
+curl localhost:9050/api/supply/pando
 
 // Result
 {
@@ -731,7 +731,7 @@ This API returns the circulation amount of PTX.
 **Example**
 ```
 // Request 
-curl https://explorer.pandotoken.org:9000/api/supply/PTX
+curl localhost:9050/api/supply/PTX
 
 // Result
 {

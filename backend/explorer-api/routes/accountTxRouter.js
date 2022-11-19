@@ -116,7 +116,7 @@ var accountTxRouter = (app, accountDao, accountTxDao, transactionDao, gps, stake
           type: 'error_not_found',
           error
         });
-        res.status(404).send(err);
+        res.status(200).send(err);
       });
   });
 
@@ -213,14 +213,14 @@ var accountTxRouter = (app, accountDao, accountTxDao, transactionDao, gps, stake
                   const err = ({
                     type: 'error_not_found',
                   });
-                  res.status(404).send(err);
+                  res.status(200).send(err);
                 }
               }).catch(error => {
                 const err = ({
                   type: 'error_not_found',
                   error
                 });
-                res.status(404).send(err);
+                res.status(200).send(err);
               })
           } else {
             res.status(500).send(err);
@@ -267,7 +267,7 @@ var accountTxRouter = (app, accountDao, accountTxDao, transactionDao, gps, stake
             error
           });
 
-          res.status(404).send(err);
+          res.status(200).send(err);
         } else {
           res.status(500).send(err);
         }
@@ -409,40 +409,6 @@ var accountTxRouter = (app, accountDao, accountTxDao, transactionDao, gps, stake
 
   });
 
-  // router.get("/circulating/supply", async (req, res) => {
-  //   try {
-  //     let data = await circulatingCurrDao.getAllDataCirculatingAsync();
-  //     let TotalWalletBal = data[0].Total * 10e-19;
-  //     let totalStakeData = await stakeDao.getSumOfStakesAsync();
-  //     let stakeBalance = totalStakeData[0].Total * 10e-19
-  //     let finalWalletAmount = parseFloat(TotalWalletBal + stakeBalance).toFixed(4)
-  //     logger.info("circulating/supply", { "CirculatingSupply": parseFloat(finalWalletAmount) })
-  //     res.status(200).send({ "CirculatingSupply": parseFloat(finalWalletAmount) });
-
-  //   } catch (err) {
-
-  //     // console.log("/circulating/supply", err)
-  //     logger.error("circulating/supplygggggggggggg", { "Msg": "error" })
-  //     res.status(500).send({ "Msg": "error" });
-
-  //   }
-
-  // });
-  // router.get("/lbank/price", async (req, res) => {
-  //   try {
-  //     let data = await lBankDao.getDataLbankAsync();
-  //     // console.log("/lbank/price", data)
-  //     loffer.info("lbank/price")
-  //     res.status(200).send({ "lBankPrice": data });
-  //   } catch (err) {
-
-  //     // console.log("/lbank/price", err)
-  //     //logger.error("lbank/price", err);
-  //     res.status(500).send({ "Msg": "error" });
-
-  //   }
-
-  // });
 
   router.get("/lbank/price", async (req, res) => {
     try {
@@ -477,7 +443,7 @@ var accountTxRouter = (app, accountDao, accountTxDao, transactionDao, gps, stake
 
 
 
-      axios.get('https://backend.pandoexplorer.uniblok.io/api/stake/totalAmount')
+      axios.get('http://localhost:4022/api/stake/totalAmount')
         .then(async function (response) {
           console.log("response467", response)
           let stakeBalance = parseFloat(response.data.body.totalAmount) * 10e-19;
@@ -612,7 +578,7 @@ var accountTxRouter = (app, accountDao, accountTxDao, transactionDao, gps, stake
                   const err = ({
                     type: 'error_not_found',
                   });
-                  res.status(404).send(err);
+                  res.status(200).send(err);
                 }
               }).catch(error => {
                 const err = ({
@@ -620,7 +586,7 @@ var accountTxRouter = (app, accountDao, accountTxDao, transactionDao, gps, stake
                   error
                 });
                 console.log(err)
-                res.status(404).send(err);
+                res.status(200).send(err);
               })
           } else {
             const err = ({
@@ -745,7 +711,7 @@ var accountTxRouter = (app, accountDao, accountTxDao, transactionDao, gps, stake
                     type: 'error_not_found',
                   });
                   console.log(err)
-                  res.status(404).send(err);
+                  res.status(200).send(err);
                 }
               }).catch(error => {
                 const err = ({
@@ -753,7 +719,7 @@ var accountTxRouter = (app, accountDao, accountTxDao, transactionDao, gps, stake
                   error
                 });
                 console.log(err)
-                res.status(404).send(err);
+                res.status(200).send(err);
               })
           } else {
 
@@ -772,7 +738,7 @@ var accountTxRouter = (app, accountDao, accountTxDao, transactionDao, gps, stake
   });
 
 
-  //the / route of router will get mapped to /api
+
   app.use('/api', router);
 }
 

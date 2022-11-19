@@ -30,7 +30,7 @@ var tokenRouter = (app, tokenDao, tokenSumDao, tokenHolderDao) => {
       tokenSumDao.getInfoByAddressAsync(address)
         .then(result => {
           if (result === null) {
-            res.status(404).send({
+            res.status(200).send({
               type: 'error_not_found',
             });
             return;
@@ -74,7 +74,7 @@ var tokenRouter = (app, tokenDao, tokenSumDao, tokenHolderDao) => {
     tokenSumDao.getRecordsAsync({ _id: { $in: list } })
       .then(result => {
         if (result.length === 0) {
-          res.status(404).send({
+          res.status(200).send({
             type: 'error_not_found',
           });
           return;
@@ -141,7 +141,7 @@ var tokenRouter = (app, tokenDao, tokenSumDao, tokenHolderDao) => {
     tokenHolderDao.getHolderListAsync(address, tokenId)
       .then(result => {
         if (result === null) {
-          res.status(404).send({
+          res.status(200).send({
             type: 'error_not_found',
           });
           return;
@@ -181,7 +181,7 @@ var tokenRouter = (app, tokenDao, tokenSumDao, tokenHolderDao) => {
   //   tokenHolderDao.getTopHoldersAsync(tdropAddress, null, limit)
   //     .then(result => {
   //       if (result === null) {
-  //         res.status(404).send({
+  //         res.status(200).send({
   //           type: 'error_not_found',
   //         });
   //         return;

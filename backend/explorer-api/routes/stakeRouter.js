@@ -22,17 +22,7 @@ var stakeRouter = (app, stakeDao, blockDao, accountDao, progressDao, config) => 
           type: 'stake',
           body: stakeListInfo,
         });
-        //   const pageCount = Math.ceil(stakeListInfo.length / 10);
-        // let page = parseInt(req.query.pages);
-        // if (!page) { page = 1; }
-        // if (page > pageCount) {
-        //   page = pageCount
-        // }
-        // res.json({
-        //   "page": page,
-        //   "pageCount": pageCount,
-        //   "data": stakeListInfo.slice(page * 10 - 10, page * 10)
-        // });
+      
         console.log(stakeListInfo.length);
         res.status(200).send(data);
       })
@@ -42,7 +32,7 @@ var stakeRouter = (app, stakeDao, blockDao, accountDao, progressDao, config) => 
             type: 'error_not_found',
             error
           });
-          res.status(404).send(err);
+          res.status(200).send(err);
         } else {
           console.log('ERR - ', error)
         }
@@ -78,7 +68,7 @@ var stakeRouter = (app, stakeDao, blockDao, accountDao, progressDao, config) => 
             type: 'error_not_found',
             error
           });
-          res.status(404).send(err);
+          res.status(200).send(err);
         } else {
           console.log('ERR - ', error)
         }
@@ -114,7 +104,7 @@ var stakeRouter = (app, stakeDao, blockDao, accountDao, progressDao, config) => 
             type: 'error_not_found',
             error
           });
-          res.status(404).send(err);
+          res.status(200).send(err);
         } else {
           console.log('ERR - ', error)
         }
@@ -150,7 +140,7 @@ var stakeRouter = (app, stakeDao, blockDao, accountDao, progressDao, config) => 
             type: 'error_not_found',
             error
           });
-          res.status(404).send(err);
+          res.status(200).send(err);
         } else {
           console.log('ERR - ', error)
         }
@@ -176,7 +166,7 @@ var stakeRouter = (app, stakeDao, blockDao, accountDao, progressDao, config) => 
             type: 'error_not_found',
             error
           });
-          res.status(404).send(err);
+          res.status(200).send(err);
         } else {
           console.log('ERR - ', error)
         }
@@ -197,7 +187,7 @@ var stakeRouter = (app, stakeDao, blockDao, accountDao, progressDao, config) => 
             type: 'error_not_found',
             error
           });
-          res.status(404).send(err);
+          res.status(200).send(err);
         } else {
           console.log('ERR - ', error)
         }
@@ -235,7 +225,7 @@ var stakeRouter = (app, stakeDao, blockDao, accountDao, progressDao, config) => 
             type: 'error_not_found',
             error
           });
-          res.status(404).send(err);
+          res.status(200).send(err);
         } else {
           console.log('ERR - ', error)
         }
@@ -256,7 +246,7 @@ var stakeRouter = (app, stakeDao, blockDao, accountDao, progressDao, config) => 
             type: 'error_not_found',
             error
           });
-          res.status(404).send(err);
+          res.status(200).send(err);
         } else {
           console.log('ERR - ', error)
         }
@@ -276,7 +266,7 @@ var stakeRouter = (app, stakeDao, blockDao, accountDao, progressDao, config) => 
             type: 'error_not_found',
             error
           });
-          res.status(404).send(err);
+          res.status(200).send(err);
         } else {
           console.log('ERR - ', error)
         }
@@ -299,7 +289,7 @@ var stakeRouter = (app, stakeDao, blockDao, accountDao, progressDao, config) => 
       if (data.type === 'stakeTotalAmout') {
         res.status(200).send(data);
       } else if (data.type === 'error_not_found') {
-        res.status(404).send(data);
+        res.status(200).send(data);
       }
       return;
     }
@@ -320,7 +310,7 @@ var stakeRouter = (app, stakeDao, blockDao, accountDao, progressDao, config) => 
             error
           });
           cacheData[type] = err;
-          res.status(404).send(err);
+          res.status(200).send(err);
         } else {
           console.log('ERR - ', error)
         }
@@ -373,7 +363,7 @@ var stakeRouter = (app, stakeDao, blockDao, accountDao, progressDao, config) => 
             type: 'error_not_found',
             error
           });
-          res.status(404).send(err);
+          res.status(200).send(err);
         } else {
           console.log('ERR - ', error)
         }
@@ -427,7 +417,7 @@ var stakeRouter = (app, stakeDao, blockDao, accountDao, progressDao, config) => 
     }
 
   });
-  //the / route of router will get mapped to /api
+
   app.use('/api', router);
 }
 

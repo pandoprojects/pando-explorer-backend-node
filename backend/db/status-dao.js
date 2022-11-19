@@ -28,6 +28,7 @@ module.exports = class StatusDAO {
   getStatus(network, callback) {
     this.client.tryQuery(this.statusInfoSet, network, null, function (error, record) {
       if (error) {
+        console.log('status dao catch')
         console.log(error);
       } else {
         var statusInfo = {};

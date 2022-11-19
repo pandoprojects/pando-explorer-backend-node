@@ -12,20 +12,21 @@ var smartContractRouter = (app, smartContractDao, transactionDao, accountTxDao, 
   // The api to verify the source and bytecode
   router.post("/smartContract/verify/:address", async (req, res) => {
     let address = helper.normalize(req.params.address.toLowerCase());
-    let { sourceCode, abi, version, optimizer, versionFullName } = req.body;
+    let { sourceCode, abi, version, optimizer, versionFullName, optimizerRuns = 200 } = req.body;
+    optimizerRuns = +optimizerRuns;
+    if (Number.isNaN(optimizerRuns)) optimizerRuns = 200;
     console.log('Verifying source code for address', address);
     try {
       let sc = await smartContractDao.getSmartContractByAddressAsync(address)
       let byteCode = sc.bytecode;
       let result = await axios.post(`http://localhost:9090/api/verify/${address}`, {
-        byteCode, sourceCode, abi, version, optimizer, versionFullName
+        byteCode, sourceCode, abi, version, optimizer, versionFullName, optimizerRuns
       })
       console.log('Received response from verification server.', result.data.result);
       if (result.data.result.verified === true) {
         let newSc = { ...result.data.smart_contract, bytecode: byteCode }
         await smartContractDao.upsertSmartContractAsync(newSc);
         updateTokenHistoryBySmartContract(newSc, transactionDao, accountTxDao, tokenDao, tokenSummaryDao, tokenHolderDao);
-
       }
       const data = {
         result: result.data.result,
@@ -81,6 +82,12 @@ var smartContractRouter = (app, smartContractDao, transactionDao, accountTxDao, 
       })
       .catch(error => {
         if (error.message.includes('NOT_FOUND')) {
+          // rpc.getCodeAsync([{ 'address': address, 'height': 0 }])
+          //   .then(async function (data) {
+          //     console.log('data:', data);
+          //   }).catch(err => {
+          //     console.log('err msg:', err.message);
+          //   })
           const err = ({
             type: 'error_not_found',
             error
@@ -91,7 +98,6 @@ var smartContractRouter = (app, smartContractDao, transactionDao, accountTxDao, 
         }
       });
   });
-
 
 
   //the / route of router will get mapped to /api

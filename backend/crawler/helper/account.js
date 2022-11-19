@@ -170,7 +170,7 @@ async function _updateAccountByAddress(address, accountDao, type) {
           };
           await accountDao.upsertAccountAsync({
             address,
-            'balance': { "Pandowei": "0", "PTXwei": "0" },
+            'balance': { "Pandowei": "0", "PTXWei": "0" },
             'sequence': 0,
             'reserved_funds': [],
             'txs_counter': { [`${type}`]: 1 },
@@ -198,17 +198,18 @@ async function _updateAccountMaps(address, hash, type, timestamp, accountTxDao, 
     type,
     'ts': timestamp
   });
-
+ 
         const isExist = await dailyAccountDao.checkAccountAsync(address);
         if (!isExist) {
-          dailyAccountDao.insertAsync({ address })
+  dailyAccountDao.insertAsync({ address })
     }
   
 }
-
+//----------------------------
 async function _createSmartContract(address, bytecode, smartContractDao) {
-  const isExist = await smartContractDao.checkSmartContractAsync(address);
-  if (!isExist) {
+ // const isExist = await new smartContractDao.checkSmartContractAsync(address);
+
+  //if (!isExist) {
     smartContractDao.upsertSmartContractAsync({
       'address': address,
       'bytecode': bytecode,
@@ -219,5 +220,6 @@ async function _createSmartContract(address, bytecode, smartContractDao) {
       'optimizer': '',
       'name': ''
     });
-  }
+ // }
 }
+
